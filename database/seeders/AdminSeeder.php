@@ -5,16 +5,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-         \App\Models\User::factory(10)->create();
-         //This will create fake users at the user table.
+        // this is to create the
+        \App\Models\User::factory(1)->create(['is_admin']=> true);
     }
 }
