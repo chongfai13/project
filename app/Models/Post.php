@@ -10,6 +10,6 @@ class Post extends Model
     use HasFactory;
 
     //The update function still working without the following lines. [Weird!]
-    //protected $fillable = ['title', 'post_text', 'category_id'];
+    protected $fillable = ['title', 'post_text', 'category_id'];
 
 }

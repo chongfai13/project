@@ -11,16 +11,26 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     <table>
+                        <a class="underline" href="{{ route('categories.create')}}"> Add new category</a>
                         <thead>
                             <tr>
                                 <th>Name</th>
                             </tr>
+
                         </thead>
                         <tbody>
                             @foreach($categories as $category)
                                 <tr>
                                     <td>{{ $category->name }}</td>
-                                    <td><a href="{{ route('categories.edit', $category ) }}">Edit </a> </td></td>
+                                    <td><a href="{{ route('categories.edit', $category ) }}">Edit </a></td>
+                                    <td>
+                                        <form method="POST" action="{{route('categories.destroy', $category)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('are you sure?')">Delete</button>
+                                        </form>
+                                    </td>
+
                                 </tr>
 
                                 @endforeach
